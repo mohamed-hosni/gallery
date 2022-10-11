@@ -4,6 +4,7 @@ public $username;
 public $first_name;
 public $last_name;
 public $password;
+public $id;
 
 
 
@@ -28,9 +29,29 @@ return $result_set;
             public static function find_this_query($sql){
                 global $db;
                  $result_set=$db->query($sql);
-return $result_set;
-            }
-
+return $result_set;       
 
 }
+
+public static function inistatiation($the_record){
+$the_object=new self;
+
+// $the_object->id=$result['id'];
+// $the_object->username=$result['username'];
+// $the_object->first_name=$result['first_name'];
+// $the_object->last_name=$result['last_name'];
+// $the_object->password=$result['password'];
+
+
+foreach ($the_record as $attribute => $value) {
+if(property_exists($the_object,$attribute)){
+$the_object->the_atttibute=$value;
+}
+}
+return $the_object;
+}
+}
+
+
+
 ?>

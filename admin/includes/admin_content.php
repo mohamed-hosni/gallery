@@ -36,17 +36,19 @@ print_r($user_found);
 // print_r($result_set);
 $user=new User();
 $result=User::find_user_by_id(2);
-echo '<BR><BR>';
+ //$user->username=$result['username'];
+ $user_object=User::inistatiation($result);
+ echo "<BR><BR>";
 
-echo $user->username=$result['username'];
-echo '<BR><BR>';
-echo $user->username=$result['first_name'];
-echo '<BR><BR>';
-
-echo $user->username=$result['last_name'];
-echo '<BR><BR>';
-
-echo $user->username=$result['password'];
+ echo $user_object->username;
+echo "<BR><BR>";
+echo $user_object->password;
+echo "<BR><BR>";
+echo $user_object->id;
+echo "<BR><BR>";
+echo $user_object->first_name;
+echo "<BR><BR>";
+echo $user_object->last_name;
 
 
 

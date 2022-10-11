@@ -34,9 +34,19 @@ print_r($user_found);
 // $result=User:: find_all_users();
 // $result_set=mysqli_fetch_array($result);
 // print_r($result_set);
-
+$user=new User();
 $result=User::find_user_by_id(2);
-var_dump($result);
+echo '<BR><BR>';
+
+echo $user->username=$result['username'];
+echo '<BR><BR>';
+echo $user->username=$result['first_name'];
+echo '<BR><BR>';
+
+echo $user->username=$result['last_name'];
+echo '<BR><BR>';
+
+echo $user->username=$result['password'];
 
 
 

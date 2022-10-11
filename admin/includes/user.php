@@ -1,5 +1,11 @@
 <?php
 class User{
+public $username;
+public $first_name;
+public $last_name;
+public $password;
+
+
 
 
 public static function find_all_users(){

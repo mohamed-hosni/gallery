@@ -37,8 +37,8 @@ return $result_set;
 
                  $the_object_array=array();
                  while($row=mysqli_fetch_array($result_set)){
-                 //$the_object_array[]=self::inistatiation($row);
-                 array_push( $the_object_array,self::inistatiation($row));
+                 $the_object_array[]=self::inistatiation($row);
+                // array_push( $the_object_array,self::inistatiation($row));
                  //return $the_object_array;
 }
 

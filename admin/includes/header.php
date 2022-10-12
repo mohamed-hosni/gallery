@@ -1,8 +1,11 @@
 <?php ob_start();?>
 <?php include('init.php')?>
+<?php
+if(!$session->is_signed_in());
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">

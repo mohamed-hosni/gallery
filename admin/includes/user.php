@@ -23,9 +23,15 @@ return $result_set;
         //$result_set= $db->query("select * from users where `id`=$id limit 1");
         $Result=self::find_this_query("select * from users where id= $id");
         
-        $result_set=mysqli_fetch_array($Result);
-        return $result_set;
+        // $result_set=mysqli_fetch_array($Result);
+        
+        $the_object_array=array();
+        while($row=mysqli_fetch_array($Result)){
+        $the_object_array[]=self::inistatiation($row);
+        return $the_object_array;
             }
+
+        }
             public static function find_this_query($sql){
                 global $db;
                  $result_set=$db->query($sql);
@@ -44,12 +50,24 @@ $the_object=new self;
 
 
 foreach ($the_record as $attribute => $value) {
-if(property_exists($the_object,$attribute)){
-$the_object->the_atttibute=$value;
+if($the_object->has_the_attribute($attribute)){
+$the_object->$attribute=$value;
 }
 }
+
+
+
+
 return $the_object;
 }
+
+private function has_the_attribute($attribute){
+    $object_properties=get_object_vars($this);
+return array_key_exists($attribute,$object_properties);
+
+}
+
+
 }
 
 

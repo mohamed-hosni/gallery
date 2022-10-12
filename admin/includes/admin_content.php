@@ -4,6 +4,7 @@
 <?php //include 'database.php'
 //require 'database.php'
 
+use function PHPSTORM_META\type;
 
 ?>
 <!-- Page Heading -->
@@ -34,21 +35,39 @@ print_r($user_found);
 // $result=User:: find_all_users();
 // $result_set=mysqli_fetch_array($result);
 // print_r($result_set);
-$user=new User();
-$result=User::find_user_by_id(2);
- //$user->username=$result['username'];
- $user_object=User::inistatiation($result);
- echo "<BR><BR>";
 
- echo $user_object->username;
+
+
+// $user=new User();
+// $result=User::find_user_by_id(2);
+//  //$user->username=$result['username'];
+//  $user_object=User::inistatiation($result);
+//  echo "<BR><BR>";
+
+//  echo $user_object->username;
+// echo "<BR><BR>";
+// echo $user_object->password;
+// echo "<BR><BR>";
+// echo $user_object->id;
+// echo "<BR><BR>";
+// echo $user_object->first_name;
+// echo "<BR><BR>";
+// echo $user_object->last_name;
+
+
+$user= User::find_user_by_id(2);
+
+foreach ($user as $user) {
+echo $user->id;
 echo "<BR><BR>";
-echo $user_object->password;
+echo $user->first_name;
 echo "<BR><BR>";
-echo $user_object->id;
+echo $user->last_name;
 echo "<BR><BR>";
-echo $user_object->first_name;
+echo $user->password;
 echo "<BR><BR>";
-echo $user_object->last_name;
+}
+
 
 
 

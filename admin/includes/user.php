@@ -25,19 +25,27 @@ return $result_set;
         
         // $result_set=mysqli_fetch_array($Result);
         
-        $the_object_array=array();
-        while($row=mysqli_fetch_array($Result)){
-        $the_object_array[]=self::inistatiation($row);
-        return $the_object_array;
-            }
+        
+        return $Result;
+            
 
         }
             public static function find_this_query($sql){
                 global $db;
                  $result_set=$db->query($sql);
-return $result_set;       
 
+
+                 $the_object_array=array();
+                 while($row=mysqli_fetch_array($result_set)){
+                 //$the_object_array[]=self::inistatiation($row);
+                 array_push( $the_object_array,self::inistatiation($row));
+                 //return $the_object_array;
 }
+
+return $the_object_array;       
+
+
+            }
 
 public static function inistatiation($the_record){
 $the_object=new self;

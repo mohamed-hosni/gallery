@@ -58,14 +58,15 @@ print_r($user_found);
 $user= User::find_user_by_id(2);
 
 foreach ($user as $user) {
-echo $user->id;
-echo "<BR><BR>";
-echo $user->first_name;
-echo "<BR><BR>";
-echo $user->last_name;
-echo "<BR><BR>";
-echo $user->password;
-echo "<BR><BR>";
+    echo "<BR><BR>";
+    echo $user->id;
+    echo "<BR><BR>";
+    echo $user->username;
+    echo "<BR><BR>";
+    echo $user->last_name;
+    echo "<BR><BR>";
+    echo $user->password;
+
 }
 
 
